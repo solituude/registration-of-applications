@@ -1,26 +1,25 @@
 import React from "react";
-import {observer} from "mobx-react-lite";
-import logStore from "../../../shared/model/LogStore";
 
-import './logTable.module.scss';
+import './applicationTable.module.scss';
+import {ApplicationTableProps} from "../../lib/types";
 
-
-const ApplicationTable: React.FC = observer(() => {
+const ApplicationTable: React.FC<ApplicationTableProps> = ({applications}) => {
+    console.log(applications);
     return (
         <table>
             <thead>
-            <tr>
-                <th>№</th>
-                <th>Адрес</th>
-                <th>Тип аварии</th>
-                <th>Приоритет</th>
-                <th>Заявитель</th>
-                <th>Номер телефона</th>
-            </tr>
+                <tr>
+                    <th>№</th>
+                    <th>Адрес</th>
+                    <th>Тип аварии</th>
+                    <th>Приоритет</th>
+                    <th>Заявитель</th>
+                    <th>Номер телефона</th>
+                </tr>
             </thead>
             <tbody>
             {
-                logStore.currAppsArray.map((log) => (
+                applications.map((log) => (
                     <tr>
                         <td>{log.id}</td>
                         <td>{log.address}</td>
@@ -34,7 +33,7 @@ const ApplicationTable: React.FC = observer(() => {
             </tbody>
         </table>
     )
-})
+}
 
 
 

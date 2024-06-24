@@ -1,5 +1,6 @@
 {
   "name": "registration-of-applications",
+  "proxy": "http://localhost:8000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,8 +12,8 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "bootstrap": "^5.3.3",
-    "mobx": "^6.12.4",
-    "mobx-react-lite": "^4.0.7",
+    "effector": "^23.2.2",
+    "effector-react": "^23.2.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.3",
     "react-dom": "^18.3.1",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.1"
   }
 }
