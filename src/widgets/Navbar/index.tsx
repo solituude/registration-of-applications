@@ -1,7 +1,7 @@
 import React from "react";
-import s from'./navbar.module.scss';
-import logIcon from '../../assets/icons/logNavbarIcon.svg';
-import mapIcon from '../../assets/icons/mapNavbarIcon.svg';
+import s from './navbar.module.scss';
+import logIcon from '../../shared/ui/icons/logNavbarIcon.svg';
+import mapIcon from '../../shared/ui/icons/mapNavbarIcon.svg';
 
 const Navbar: React.FC = () => {
     return(

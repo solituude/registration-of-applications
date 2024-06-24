@@ -1,17 +1,19 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
-import logStore from "../../store/LogStore";
+import logStore from "../../../shared/model/LogStore";
 
 const handleChoosePage = (page: number) => {
     logStore.getAppsArrayByPage(page);
 }
 
 const Pagination: React.FC = observer(() => {
-
     return(
         <div>
-            <button onClick={() => handleChoosePage(1)}>1</button>
-            <button onClick={() => handleChoosePage(2)}>2</button>
+            {
+                Array.from({length: logStore.countPages}, (_, index) => (
+                    <button onClick={() => handleChoosePage(index + 1)}>{index + 1}</button>
+                ))
+            }
         </div>
     );
 })

@@ -1,4 +1,4 @@
-import {ApplicationType} from "../../types/types";
+import {ApplicationType} from "../../../types/types";
 
 export const ACCIDENT_TYPES = {
     breakthrough: "Прорыв",

@@ -1,12 +1,12 @@
 import { makeAutoObservable } from 'mobx';
-import {ApplicationType} from "../types/types";
-import {dataForLogTable} from "../assets/data/exampleData";
+import {ApplicationType} from "../../types/types";
+import {dataForLogTable} from "./data/exampleData";
 
 class LogStore {
     allAppsArray: ApplicationType[] = dataForLogTable; // все заявки
     lastId: number = this.allAppsArray.length + 1;
     page: number = 1; // текущая страница
-    countPages: number = 1; // количество страниц
+    countPages: number = Math.ceil(this.allAppsArray.length / 15); // количество страниц
     currAppsArray: ApplicationType[] = this.allAppsArray.slice(0, 15); // массив заявок н-ой страницы
 
     currApp: ApplicationType = {
@@ -20,7 +20,7 @@ class LogStore {
     }; // текущая выбранная/новая заявка
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this);
     }
 
     getAppsArrayByPage = (page: number): void => {

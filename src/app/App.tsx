@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import LogPage from "./pages/LogPage/LogPage";
-import MapPage from "./pages/MapPage/MapPage";
-import Navbar from "./components/Navbar/Navbar";
+import ApplicationPage from "../pages/ApplicationsPage";
+import MapPage from "../pages/MapPage";
+import Navbar from "../widgets/Navbar";
 
 import s from './app.module.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,11 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App: React.FC = () => {
     return (
         <div className={s.content}>
+
             <Navbar/>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<LogPage/>}/>
-                    <Route path='/statement' element={<LogPage/>}/>
+                    <Route path='/' element={<ApplicationPage/>}/>
+                    <Route path='/statement' element={<ApplicationPage/>}/>
                     <Route path='/map/<x>/<y>/<zoom>' element={<MapPage/>}/>
                 </Routes>
             </BrowserRouter>

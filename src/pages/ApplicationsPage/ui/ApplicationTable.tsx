@@ -1,11 +1,11 @@
 import React from "react";
 import {observer} from "mobx-react-lite";
-import logStore from "../../store/LogStore";
+import logStore from "../../../shared/model/LogStore";
 
 import './logTable.module.scss';
 
 
-const LogTable: React.FC = observer(() => {
+const ApplicationTable: React.FC = observer(() => {
     return (
         <table>
             <thead>
@@ -38,4 +38,4 @@ const LogTable: React.FC = observer(() => {
 
 
 
-export default LogTable;
+export default ApplicationTable;
