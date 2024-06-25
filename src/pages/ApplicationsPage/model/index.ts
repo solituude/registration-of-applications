@@ -14,6 +14,7 @@ getCurrApplicationsFx.use(getApplicationsByPage);
 // Хранилище ошибки получения заявок
 export const $fetchCurrApplicationError = restore<Error>(getCurrApplicationsFx.failData, null).reset(getCurrApplicationsFx);
 
+
 // Статус запроса
 export const $currApplicationsGetStatus = combine({
     loading: getCurrApplicationsFx.pending,
@@ -22,4 +23,5 @@ export const $currApplicationsGetStatus = combine({
 });
 
 // Обновление хранилища заявок при успешном выполнении эффекта
-$currApplications.on(getCurrApplicationsFx.doneData, (_, data) => data);
+$currApplications
+    .on(getCurrApplicationsFx.doneData, (_, data) => data);

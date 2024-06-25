@@ -1,26 +1,32 @@
 import React, {useEffect} from "react";
-
-import s from './applicationPage.module.scss';
-import ApplicationTable from "./ui/ApplicationTable";
-import Pagination from "./ui/Pagination";
 import {useUnit} from "effector-react";
 import {$currApplicationsGetStatus, getCurrApplicationsFx} from "./model";
+import {$currPage} from '../../shared/model';
+
+import Panel from "./ui/Panel";
+import ApplicationTable from "./ui/ApplicationTable";
+import Pagination from "../../shared/ui/Pagination";
+
+import s from './applicationPage.module.scss';
+import {Outlet} from "react-router-dom";
 
 const ApplicationPage: React.FC = () => {
     const { loading, error, data } = useUnit($currApplicationsGetStatus);
+    const currPage = useUnit($currPage);
 
-    // Делаем запрос на бек на didMount
     useEffect(() => {
-        getCurrApplicationsFx(1)
-    }, []);
+        getCurrApplicationsFx(currPage);
+    }, [currPage]);
+
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
     return(
         <main className={s.main__container}>
-            <h1>Журнал заявок</h1>
+            <Panel/>
             <ApplicationTable applications={data.data}/>
-            <Pagination/>
+            <Pagination countPages={data.pages} next={data.next} prev={data.prev}/>
+            <Outlet/>
         </main>
     );
 }

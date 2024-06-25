@@ -19,13 +19,10 @@ export const getApplicationsByPage = async (page: number): Promise<IResponseCurr
 }
 
 export const getCountPages = async () => {
-    try {
-        const response = await fetch('/countPages', {
-            method: "GET",
-        });
-        return await response.json();
-    } catch (e) {
-        console.log(e);
-    }
+    const response = await fetch('/countPages', {
+        method: "GET",
+    });
+    console.log(response.json());
+    return await response.json();
 }
 

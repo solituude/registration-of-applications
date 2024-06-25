@@ -8,6 +8,12 @@ export type ApplicationType = {
     phone: string
 };
 
+export type PaginationProps = {
+    countPages: number,
+    prev: number,
+    next: number,
+}
+
 
 export type ApplicationStateType = {
     applications: ApplicationType[];
@@ -18,7 +24,14 @@ export type ApplicationStateType = {
 };
 
 export type ErrorType = {
-    text: "string",
+    data: string,
+    error: {
+        message: string,
+        stack: string,
+    },
+    internal: boolean,
+    status: number,
+    statusText: string
 }
 
 export const ACCIDENT_TYPES = {

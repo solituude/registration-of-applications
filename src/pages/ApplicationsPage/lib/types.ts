@@ -13,3 +13,4 @@ export interface IResponseCurrApplications {
     pages: number,
     prev: number
 }
+

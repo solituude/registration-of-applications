@@ -1,0 +1,18 @@
+.panel__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel__header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel__main{
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  gap: 20px;
+}
