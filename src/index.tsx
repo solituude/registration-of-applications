@@ -8,7 +8,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import ApplicationPage from "./pages/ApplicationsPage";
-import Modal from "./pages/ApplicationsPage/ui/Modal";
+import EditModal from "./pages/ApplicationsPage/ui/EditModal";
 import MapPage from "./pages/MapPage";
 
 const router = createBrowserRouter([
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "/statement/:id",
-                        element: <Modal/>,
+                        element: <EditModal/>,
                     }
                 ]
             },

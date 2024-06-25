@@ -1,4 +1,5 @@
 import {IResponseCurrApplications} from "../../pages/ApplicationsPage/lib/types";
+import {ApplicationType} from "../types/types";
 
 export const getAllApplication = async () => {
     try {
@@ -18,11 +19,15 @@ export const getApplicationsByPage = async (page: number): Promise<IResponseCurr
     return await response.json();
 }
 
-export const getCountPages = async () => {
-    const response = await fetch('/countPages', {
+export const getApplicationById = async (id: number): Promise<ApplicationType> => {
+    const response = await fetch(`/allApplications/${id}`, {
         method: "GET",
     });
-    console.log(response.json());
+
     return await response.json();
 }
+
+// export const putApplicationById = async (id: number) => {
+//
+// }
 

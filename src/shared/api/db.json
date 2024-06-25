@@ -1,173 +1,173 @@
 {
   "allApplications": [
     {
-      "id": 1,
+      "id": "1",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 2,
+      "id": "2",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 3,
+      "id": "3",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 4,
+      "id": "4",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 5,
+      "id": "5",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 6,
+      "id": "6",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 7,
+      "id": "7",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 8,
+      "id": "8",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 9,
+      "id": "9",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 10,
+      "id": "10",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 11,
+      "id": "11",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 12,
+      "id": "12",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 13,
+      "id": "13",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 14,
+      "id": "14",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 15,
+      "id": "15",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 16,
+      "id": "16",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 17,
+      "id": "17",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 18,
+      "id": "18",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     },
     {
-      "id": 19,
+      "id": "19",
       "address": "ул. Ленина 1",
       "coordinates": "56, 32",
       "accidentType": "blockage",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
     }

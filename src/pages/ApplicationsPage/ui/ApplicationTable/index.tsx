@@ -22,8 +22,7 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({applications}) => {
                 <th>Приоритет</th>
                 <th>Заявитель</th>
                 <th>Номер телефона</th>
-                <th>
-                </th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
