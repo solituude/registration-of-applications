@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import s from './modal.module.scss';
 import {useNavigate} from "react-router-dom";
-import {getApplicationById} from "../../../../shared/api";
+import {getApplicationById, putApplicationById} from "../../../../shared/api";
 import {ApplicationType} from "../../../../shared/types/types";
 import {ACCIDENT_TYPES, PRIORITY_TYPES} from '../../../../shared/types/types';
 
@@ -10,13 +10,20 @@ const EditModal: React.FC = () => {
     const navigate = useNavigate();
     const idApplication = window.location.pathname.slice(11, window.location.pathname.length);
 
-    const [application, setApplication] = useState<ApplicationType>();
+    const [application, setApplication] = useState<ApplicationType>({
+        id: 0, phone: '', name: "", accidentType: "", priority: 0, address: "", coordinates: ""
+    });
     useEffect(() => {
         getApplicationById(Number(idApplication)).then(r => setApplication(r));
     }, [])
 
     const handleClose = () => {
         navigate('/statement');
+    }
+
+    const handleSubmit = () => {
+        putApplicationById(application).then(r => console.log(r));
+        handleClose();
     }
 
     return (
@@ -63,7 +70,7 @@ const EditModal: React.FC = () => {
                 </div>
 
                 <div className={s.footer}>
-                    <button onClick={() => handleClose()}>Сохранить</button>
+                    <button onClick={() => handleSubmit()}>Сохранить</button>
                     <button onClick={() => handleClose()}>Закрыть</button>
                 </div>
             </div>

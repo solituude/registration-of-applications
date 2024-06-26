@@ -2,7 +2,7 @@
   "allApplications": [
     {
       "id": "1",
-      "address": "ул. Ленина 1",
+      "address": "ул. Ленина 123",
       "coordinates": "56, 32",
       "accidentType": "blockage",
       "priority": "1",
@@ -11,7 +11,7 @@
     },
     {
       "id": "2",
-      "address": "ул. Ленина 1",
+      "address": "ул. Ленина 1234",
       "coordinates": "56, 32",
       "accidentType": "blockage",
       "priority": "1",
