@@ -11,6 +11,7 @@ export const $currApplications = createStore<IResponseCurrApplications>({
 export const getCurrApplicationsFx = createEffect<number, IResponseCurrApplications, Error>();
 getCurrApplicationsFx.use(getApplicationsByPage);
 
+
 // Хранилище ошибки получения заявок
 export const $fetchCurrApplicationError = restore<Error>(getCurrApplicationsFx.failData, null).reset(getCurrApplicationsFx);
 
@@ -25,3 +26,4 @@ export const $currApplicationsGetStatus = combine({
 // Обновление хранилища заявок при успешном выполнении эффекта
 $currApplications
     .on(getCurrApplicationsFx.doneData, (_, data) => data);
+

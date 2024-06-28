@@ -1,5 +1,5 @@
 export type ApplicationType = {
-    id: number,
+    id: string,
     address: string,
     coordinates: string,
     accidentType: string,

@@ -1,4 +1,5 @@
 import {ApplicationType} from "../../../shared/types/types";
+import React from "react";
 
 export interface ApplicationTableProps {
     applications: ApplicationType[]
@@ -14,3 +15,7 @@ export interface IResponseCurrApplications {
     prev: number
 }
 
+export type ModalFormProps = {
+    application: ApplicationType,
+    setApplication:  React.Dispatch<React.SetStateAction<ApplicationType>>
+}

@@ -13,7 +13,8 @@
 1. Склонируйте репозиторий `git clone https://github.com/solituude/registration-of-applications.git`
 2. Установите зависимости: `npm i`
 3. Запустите приложение: `npm start`
-4. Запустите json-server с командой: `json-server --watch db.json --port 8000`
+4. Запустите json-server из папки `src/shared/api` с командой: 
+   `json-server --watch db.json --port 8000`
 
 Клиентская часть запустится на [http://localhost:3000](http://localhost:3000).
 JSON-сервер будет отвечать с [http://localhost:8000](http://localhost:8000).

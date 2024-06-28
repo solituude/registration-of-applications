@@ -27,12 +27,19 @@ export const getApplicationById = async (id: number): Promise<ApplicationType> =
     return await response.json();
 }
 
-export const putApplicationById = async (application: ApplicationType): Promise<ApplicationType[]> => {
+export const putApplicationById = async (application: ApplicationType): Promise<ApplicationType> => {
     const response = await fetch(`/allApplications/${application.id}`, {
         method: "PUT",
         body: JSON.stringify(application),
     });
+    return await response.json();
+}
 
+export const postApplicationById = async (application: ApplicationType): Promise<ApplicationType> => {
+    const response = await fetch(`/allApplications`, {
+        method: "POST",
+        body: JSON.stringify(application),
+    });
     return await response.json();
 }
 

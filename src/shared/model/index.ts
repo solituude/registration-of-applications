@@ -30,3 +30,15 @@ const updatePage = (_: number, data: number) => {
 
 $currPage
     .on(handleUpdatePage, updatePage);
+
+
+export const $lastID = createStore<number>(20);
+
+export const handleUpdateLastID = createEvent<number>();
+
+const updateLastID = (lastID: number) => {
+    return lastID + 1;
+}
+
+$lastID
+    .on(handleUpdateLastID, updateLastID);

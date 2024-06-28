@@ -8,7 +8,7 @@ import { useNavigate} from "react-router-dom";
 const ApplicationTable: React.FC<ApplicationTableProps> = ({applications}) => {
 
     const navigate = useNavigate();
-    const handleClick = (id: number) => {
+    const handleClick = (id: string) => {
         navigate(`/statement/${id}`);
     }
 

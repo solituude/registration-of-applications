@@ -10,6 +10,7 @@ import {
 import ApplicationPage from "./pages/ApplicationsPage";
 import EditModal from "./pages/ApplicationsPage/ui/EditModal";
 import MapPage from "./pages/MapPage";
+import AddModal from "./pages/ApplicationsPage/ui/AddModal";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
                     {
                         path: "/statement/:id",
                         element: <EditModal/>,
+                    },
+                    {
+                        path: "/statement/add",
+                        element: <AddModal/>,
                     }
                 ]
             },
