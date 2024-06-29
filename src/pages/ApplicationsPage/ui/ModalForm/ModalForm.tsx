@@ -2,9 +2,10 @@ import React from "react";
 import s from "../EditModal/modal.module.scss";
 import {ACCIDENT_TYPES, PRIORITY_TYPES} from "../../../../shared/types/types";
 import {ModalFormProps} from "../../lib/types";
+import MapView from "../MapView/MapView";
 
 const ModalForm: React.FC<ModalFormProps> = ({application, setApplication}) => {
-    return(
+    return (
         <form className={s.form__container}>
             <label htmlFor="address">Адрес: </label>
             <input id="address" type="text" value={application?.address} onChange={(e) =>
@@ -39,7 +40,7 @@ const ModalForm: React.FC<ModalFormProps> = ({application, setApplication}) => {
             <label htmlFor="phone">Номер телефона: </label>
             <input id="name" inputMode={"tel"} value={application?.phone} onChange={(e) =>
                 application && setApplication({...application, phone: e.target.value})}/>
-
+            <MapView/>
         </form>
     )
 }

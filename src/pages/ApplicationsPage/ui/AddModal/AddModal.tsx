@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import s from "../EditModal/modal.module.scss";
-import ModalForm from "../ModalForm";
+import ModalForm from "../ModalForm/ModalForm";
 import {ApplicationType} from "../../../../shared/types/types";
 import {useNavigate} from "react-router-dom";
 import {postApplicationById} from "../../../../shared/api";

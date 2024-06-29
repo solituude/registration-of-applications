@@ -22,20 +22,18 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({applications}) => {
                 <th>Приоритет</th>
                 <th>Заявитель</th>
                 <th>Номер телефона</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
             {
                 applications.map((log) => (
-                    <tr key={log.id}>
+                    <tr key={log.id} onClick={() => handleClick(log.id)}>
                         <td>{log.id}</td>
                         <td>{log.address}</td>
                         <td>{log.accidentType}</td>
                         <td>{log.priority}</td>
                         <td>{log.name}</td>
                         <td>{log.phone}</td>
-                        <td><button onClick={() => handleClick(log.id)}>Edit</button></td>
                     </tr>
                 ))
             }

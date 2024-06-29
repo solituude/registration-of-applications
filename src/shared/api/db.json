@@ -179,6 +179,15 @@
       "priority": 4,
       "address": "ул. Лукачева 34",
       "coordinates": ""
+    },
+    {
+      "id": "23",
+      "phone": "",
+      "name": "",
+      "accidentType": "",
+      "priority": 0,
+      "address": "",
+      "coordinates": ""
     }
   ]
 }

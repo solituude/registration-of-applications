@@ -7,7 +7,7 @@ import {ApplicationType} from "../../../../shared/types/types";
 import {useUnit} from "effector-react";
 import {$currPage} from "../../../../shared/model";
 import {getCurrApplicationsFx} from "../../model";
-import ModalForm from "../ModalForm";
+import ModalForm from "../ModalForm/ModalForm";
 
 const EditModal: React.FC = () => {
     const currPage = useUnit($currPage);

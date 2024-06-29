@@ -1,21 +1,23 @@
 import React, {useEffect} from "react";
 import {useUnit} from "effector-react";
 import {$currApplicationsGetStatus, getCurrApplicationsFx} from "./model";
-import {$currPage} from '../../shared/model';
+import {$currPage, $lastID, handleUpdateLastID} from '../../shared/model';
 
-import Panel from "./ui/Panel";
-import ApplicationTable from "./ui/ApplicationTable";
-import Pagination from "../../shared/ui/Pagination";
+import Panel from "./ui/Panel/Panel";
+import ApplicationTable from "./ui/ApplicationTable/ApplicationTable";
+import Pagination from "../../shared/ui/Pagination/Pagination";
 
 import s from './applicationPage.module.scss';
 import {Outlet} from "react-router-dom";
 
 const ApplicationPage: React.FC = () => {
+    const currId = useUnit($lastID);
     const { loading, error, data } = useUnit($currApplicationsGetStatus);
     const currPage = useUnit($currPage);
 
     useEffect(() => {
         getCurrApplicationsFx(currPage);
+        handleUpdateLastID(currId);
     }, [currPage]);
 
 
