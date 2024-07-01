@@ -15,7 +15,7 @@ const EditModal: React.FC = () => {
     const idApplication = window.location.pathname.slice(11, window.location.pathname.length);
 
     const [application, setApplication] = useState<ApplicationType>({
-        id: "0", phone: '', name: "", accidentType: "", priority: 0, address: "", coordinates: [47.222110, 39.718808]
+        id: "0", phone: '', name: "", accidentType: "", priority: "", address: "", coordinates: [47.222110, 39.718808]
     });
     useEffect(() => {
         getApplicationById(Number(idApplication)).then(r => {

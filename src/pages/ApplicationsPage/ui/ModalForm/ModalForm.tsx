@@ -25,7 +25,7 @@ const ModalForm: React.FC<ModalFormProps> = ({application, setApplication}) => {
 
             <label htmlFor="priority">Приоритет: </label>
             <select value={application?.priority} onChange={(e) =>
-                application && setApplication({...application, priority: Number(e.target.value)})} id="priority">
+                application && setApplication({...application, priority: e.target.value})} id="priority">
                 <option value="">Приоритет</option>
                 <option value="4">{PRIORITY_TYPES["4"]}</option>
                 <option value="3">{PRIORITY_TYPES["3"]}</option>

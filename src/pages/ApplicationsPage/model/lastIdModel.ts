@@ -12,7 +12,7 @@ getLastIdFx.use(getLastId);
 
 
 // Ошибка получения последнего айди
-export const $fetchLastIdError = restore<Error>(getLastIdFx.failData, null).reset(getLastIdFx);
+export const $fetchLastIdError = restore<Error>(getLastIdFx.failData, null);
 
 // Статус запроса
 export const $lastIdGetStatus = combine({

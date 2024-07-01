@@ -3,7 +3,7 @@ export type ApplicationType = {
     address: string,
     coordinates: number[],
     accidentType: string,
-    priority: number,
+    priority: string,
     name: string,
     phone: string
 };
@@ -12,6 +12,10 @@ export type PaginationProps = {
     countPages: number,
     prev: number,
     next: number,
+}
+
+export type PriorityChipProps = {
+    priority: string
 }
 
 

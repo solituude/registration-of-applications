@@ -1,0 +1,40 @@
+$bg-colors: (
+        1: #ffcfcf,
+        2: #fff0d7,
+        3: #eeffcc,
+        4: #c8f0ff
+);
+
+$colors: (
+        1: #a20000,
+        2: #c06d00,
+        3: #4f7301,
+        4: #006ea6
+);
+
+@each $id, $bg-color in $bg-colors {
+  .chip__container_#{$id} {
+    background-color: $bg-color;
+  }
+}
+
+@each $id, $color in $colors {
+  .chip__container_#{$id} {
+    border: 1px $color solid;
+  }
+  .chip__text_#{$id} {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    color: $color;
+  }
+}
+
+.chip__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 164px;
+  height: 28px;
+  margin: 4px;
+  border-radius: 16px;
+}

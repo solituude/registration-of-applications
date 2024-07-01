@@ -14,11 +14,12 @@ const AddModal: React.FC = () => {
     const currPage = useUnit($currPage);
     const { loadingLastId, errorLastId, lastId } = useUnit($lastIdGetStatus);
     const [application, setApplication] = useState<ApplicationType>({
-        id: lastId.toString(), phone: '', name: "", accidentType: "", priority: 0, address: "", coordinates: [47.222110, 39.718808]
+        id: lastId.toString(), phone: '', name: "", accidentType: "", priority: "", address: "",
+        coordinates: [47.222110, 39.718808]
     });
 
     useEffect(() => {
-        getLastIdFx();
+        getLastIdFx().then(r => setApplication({...application, id: r.data.toString()}));
     }, [])
 
 

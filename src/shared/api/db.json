@@ -3,14 +3,41 @@
     {
       "id": "1",
       "address": "ул. Ленина 124",
-      "coordinates": [47.232664, 39.698870],
+      "coordinates": [
+        47.232664,
+        39.69887
+      ],
       "accidentType": "breakthrough",
-      "priority": 1,
+      "priority": "1",
       "name": "Иван",
       "phone": "+7 (987) 890-89-90"
+    },
+    {
+      "id": "2",
+      "phone": "+79678070949",
+      "name": "Дарья Александровна Белоусова",
+      "accidentType": "",
+      "priority": "",
+      "address": "ул. Лукачева 34",
+      "coordinates": [
+        47.22211,
+        39.718808
+      ]
+    },
+    {
+      "id": "3",
+      "phone": "+79678070949",
+      "name": "Дарья Александровна Белоусова",
+      "accidentType": "",
+      "priority": "",
+      "address": "ул. Лукачева 34",
+      "coordinates": [
+        47.22211,
+        39.718808
+      ]
     }
   ],
   "lastID": {
-    "data": 2
+    "data": 4
   }
 }
