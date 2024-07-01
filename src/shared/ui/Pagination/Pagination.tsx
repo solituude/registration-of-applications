@@ -1,6 +1,6 @@
 import React from "react";
 import {PaginationProps} from "../../types/types";
-import {handleUpdatePage} from "../../model";
+import {handleUpdatePage} from "../../../pages/ApplicationsPage/model/currPageModel";
 
 const Pagination: React.FC<PaginationProps> = (pagesData) => {
     return(

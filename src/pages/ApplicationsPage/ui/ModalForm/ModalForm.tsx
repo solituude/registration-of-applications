@@ -40,7 +40,7 @@ const ModalForm: React.FC<ModalFormProps> = ({application, setApplication}) => {
             <label htmlFor="phone">Номер телефона: </label>
             <input id="name" inputMode={"tel"} value={application?.phone} onChange={(e) =>
                 application && setApplication({...application, phone: e.target.value})}/>
-            <MapView/>
+            <MapView lat={application.coordinates[0]} lon={application.coordinates[1]} />
         </form>
     )
 }

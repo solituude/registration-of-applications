@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useUnit} from "effector-react";
-import {$currApplicationsGetStatus, getCurrApplicationsFx} from "./model";
-import {$currPage, $lastID, handleUpdateLastID} from '../../shared/model';
+import {$currApplicationsGetStatus, getCurrApplicationsFx} from "./model/currApplicationsModel";
+import {$currPage} from "./model/currPageModel";
 
 import Panel from "./ui/Panel/Panel";
 import ApplicationTable from "./ui/ApplicationTable/ApplicationTable";
@@ -11,13 +11,12 @@ import s from './applicationPage.module.scss';
 import {Outlet} from "react-router-dom";
 
 const ApplicationPage: React.FC = () => {
-    const currId = useUnit($lastID);
     const { loading, error, data } = useUnit($currApplicationsGetStatus);
     const currPage = useUnit($currPage);
 
     useEffect(() => {
         getCurrApplicationsFx(currPage);
-        handleUpdateLastID(currId);
+        // getAllApplicationsFx().then(r => console.log(r));
     }, [currPage]);
 
 

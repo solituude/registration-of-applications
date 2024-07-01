@@ -1,35 +1,51 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import s from "../EditModal/modal.module.scss";
 import ModalForm from "../ModalForm/ModalForm";
 import {ApplicationType} from "../../../../shared/types/types";
 import {useNavigate} from "react-router-dom";
-import {postApplicationById} from "../../../../shared/api";
-import {getCurrApplicationsFx} from "../../model";
+import {postApplicationById, postLastId} from "../../../../shared/api/api";
+import {getCurrApplicationsFx} from "../../model/currApplicationsModel";
 import {useUnit} from "effector-react";
-import {$currPage, $lastID, handleUpdateLastID} from "../../../../shared/model";
+import {$currPage} from "../../model/currPageModel";
+import {$lastIdGetStatus, getLastIdFx} from "../../model/lastIdModel";
 
 const AddModal: React.FC = () => {
     const navigate = useNavigate();
     const currPage = useUnit($currPage);
-    const currId = useUnit($lastID);
+    const { loadingLastId, errorLastId, lastId } = useUnit($lastIdGetStatus);
     const [application, setApplication] = useState<ApplicationType>({
-        id: currId.toString(), phone: '', name: "", accidentType: "", priority: 0, address: "", coordinates: ""
+        id: lastId.toString(), phone: '', name: "", accidentType: "", priority: 0, address: "", coordinates: [47.222110, 39.718808]
     });
+
+    useEffect(() => {
+        getLastIdFx();
+    }, [])
+
+
     const handleClose = () => {
         navigate('/statement');
     }
     const handleSubmit = () => {
         postApplicationById(application);
         getCurrApplicationsFx(currPage);
-        handleUpdateLastID(currId);
+        postLastId(lastId + 1);
         handleClose();
     }
     return(
         <div className={s.modal_wrapper}>
             <div className={s.modal}>
                 <div className={s.body}>
-                    Создание заявки № {currId}
-                    <ModalForm application={application} setApplication={setApplication}/>
+
+                    { errorLastId ? <>Ошибка в создании заявки</> :
+
+                        loadingLastId ? <>Загрузка...</> :
+
+                            <>
+                                Создание заявки № {lastId}
+                                <ModalForm application={application} setApplication={setApplication}/>
+                            </>
+                    }
+
                 </div>
 
                 <div className={s.footer}>
@@ -38,6 +54,7 @@ const AddModal: React.FC = () => {
                 </div>
             </div>
         </div>
+        // если после
     )
 }
 

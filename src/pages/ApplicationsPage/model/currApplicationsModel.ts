@@ -1,5 +1,5 @@
 import { combine, createEffect, createStore, restore } from 'effector';
-import {getApplicationsByPage} from "../../../shared/api";
+import {getApplicationsByPage} from "../../../shared/api/api";
 import {IResponseCurrApplications} from "../lib/types";
 
 // Создаем хранилище для текущих заявок

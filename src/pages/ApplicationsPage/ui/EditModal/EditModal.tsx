@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 
 import s from './modal.module.scss';
 import {useNavigate} from "react-router-dom";
-import {getApplicationById, putApplicationById} from "../../../../shared/api";
+import {getApplicationById, putApplicationById} from "../../../../shared/api/api";
 import {ApplicationType} from "../../../../shared/types/types";
 import {useUnit} from "effector-react";
-import {$currPage} from "../../../../shared/model";
-import {getCurrApplicationsFx} from "../../model";
+import {$currPage} from "../../model/currPageModel";
+import {getCurrApplicationsFx} from "../../model/currApplicationsModel";
 import ModalForm from "../ModalForm/ModalForm";
 
 const EditModal: React.FC = () => {
@@ -15,7 +15,7 @@ const EditModal: React.FC = () => {
     const idApplication = window.location.pathname.slice(11, window.location.pathname.length);
 
     const [application, setApplication] = useState<ApplicationType>({
-        id: "0", phone: '', name: "", accidentType: "", priority: 0, address: "", coordinates: ""
+        id: "0", phone: '', name: "", accidentType: "", priority: 0, address: "", coordinates: [47.222110, 39.718808]
     });
     useEffect(() => {
         getApplicationById(Number(idApplication)).then(r => {

@@ -1,5 +1,5 @@
-import {$allApplications, getAllApplicationsFx} from "./index";
-import {getAllApplication} from "../api";
+import {$allApplications, getAllApplicationsFx} from "./allApplicationsModel";
+import {getAllApplication} from "../api/api";
 
 getAllApplicationsFx.use(getAllApplication);
 

@@ -19,3 +19,8 @@ export type ModalFormProps = {
     application: ApplicationType,
     setApplication:  React.Dispatch<React.SetStateAction<ApplicationType>>
 }
+
+export type MapViewProps = {
+    lat: number,
+    lon: number
+}
