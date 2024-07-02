@@ -2,6 +2,7 @@ import React from "react";
 
 import s from './panel.module.scss';
 import {useNavigate} from "react-router-dom";
+import addAppIcon from '../../lib/icons/addAppIcon.svg';
 const Panel: React.FC = () => {
     const navigate = useNavigate();
 
@@ -13,7 +14,12 @@ const Panel: React.FC = () => {
         <div className={s.panel__container}>
             <div className={s.panel__header}>
                 <h1>Журнал заявок</h1>
-                <button onClick={handleOpen}>Новая заявка</button>
+                <button onClick={handleOpen} className={s.new_app__button}>
+                    <img src={addAppIcon} alt="addApp" className={s.new_app__icon}/>
+                    <span className={s.new_app__label}>
+                        Новая заявка
+                    </span>
+                </button>
             </div>
         </div>
     )

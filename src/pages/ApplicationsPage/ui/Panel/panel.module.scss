@@ -16,3 +16,35 @@
   height: 30px;
   gap: 20px;
 }
+
+.new_app__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 36px;
+  padding: 0 16px;
+  gap: 4px;
+  //margin-right: 1px;
+  border: 0;
+  border-radius: 18px;
+  background: #EAEAEA;
+  transition: 0.2s all;
+
+  &:hover {
+    //border: 1px solid black;
+    //margin-right: 0;
+    background: #d9d9d9;
+    transition: 0.2s all;
+  }
+}
+
+.new_app__icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+}
+
+.new_app__label {
+  display: flex;
+}

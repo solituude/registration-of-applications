@@ -5,11 +5,17 @@ import s from './priorityChip.module.scss';
 const PriorityChip: React.FC<PriorityChipProps> = ({priority}) => {
     const priorityStyleClass = `${s.chip__container} ${s[`chip__container_${priority}`]}`;
     const labelStyleClass = `${s[`chip__text_${priority}`]}`;
+
+    type PriorityTypeKey = keyof typeof PRIORITY_TYPES;
+
+    const isPriorityTypeKey = (key: string): key is PriorityTypeKey => {
+        return key in PRIORITY_TYPES;
+    }
+
     return(
         <div className={priorityStyleClass}>
             <span className={labelStyleClass}>
-                {priority === "1" || priority === "2" || priority === "3" || priority === "4" ?
-                    PRIORITY_TYPES[priority] : null}
+                {isPriorityTypeKey(priority) ? PRIORITY_TYPES[priority] : null}
             </span>
         </div>
     )

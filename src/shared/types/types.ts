@@ -18,6 +18,10 @@ export type PriorityChipProps = {
     priority: string
 }
 
+export type AccidentChipProps = {
+    accident: string
+}
+
 
 export type ApplicationStateType = {
     applications: ApplicationType[];
@@ -48,8 +52,8 @@ export const ACCIDENT_TYPES = {
 }
 
 export const PRIORITY_TYPES = {
-    1: "Незамедлительно",
-    2: "Высокий",
-    3: "Средний",
-    4: "Низкий"
+    "1": "Незамедлительно",
+    "2": "Высокий",
+    "3": "Средний",
+    "4": "Низкий"
 }

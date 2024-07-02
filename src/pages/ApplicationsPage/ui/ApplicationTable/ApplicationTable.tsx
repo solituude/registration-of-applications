@@ -1,9 +1,11 @@
 import React from "react";
 import {ApplicationTableProps} from "../../lib/types";
 
-import './applicationTable.module.scss';
+import s from './applicationTable.module.scss';
 import { useNavigate} from "react-router-dom";
 import PriorityChip from "../../../../shared/ui/PriorityChip/PriorityChip";
+import AccidentChip from "../../../../shared/ui/AccidentChip/AccidentChip";
+
 
 
 const ApplicationTable: React.FC<ApplicationTableProps> = ({applications}) => {
@@ -31,8 +33,8 @@ const ApplicationTable: React.FC<ApplicationTableProps> = ({applications}) => {
                     <tr key={log.id} onClick={() => handleClick(log.id)}>
                         <td>{log.id}</td>
                         <td>{log.address}</td>
-                        <td>{log.accidentType}</td>
-                        <td><PriorityChip priority={log.priority}/></td>
+                        <td><AccidentChip accident={log.accidentType}/></td>
+                        <td className={s.priority__col}><PriorityChip priority={log.priority}/></td>
                         <td>{log.name}</td>
                         <td>{log.phone}</td>
                     </tr>

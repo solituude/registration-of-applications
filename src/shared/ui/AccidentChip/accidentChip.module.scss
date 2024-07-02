@@ -1,0 +1,45 @@
+$accident-bg-colors: (
+        "breakthrough": #d6daef, // прорыв
+        "leak": #edfffb, // утечка
+        "outdoorColumn": #ffecec, // колонка уличная
+        "lowQualityWater": #eef6e8, // некачественная вода
+        "blockage": #f2e7ff, // закупорка
+        "other": #ececec // другое
+);
+
+$accident-colors: (
+        "breakthrough": #1a3ac9, // прорыв
+        "leak": #048a6f, // утечка
+        "outdoorColumn": #cc0808, // колонка уличная
+        "lowQualityWater": #318300, // некачественная вода
+        "blockage": #4b0491, // закупорка
+        "other": #4f4f4f // другое
+);
+
+@each $id, $accident-bg-color in $accident-bg-colors {
+  .chip__container_#{$id} {
+    background-color: $accident-bg-color;
+  }
+}
+
+@each $id, $accident-color in $accident-colors {
+  .chip__container_#{$id} {
+    border: 1px $accident-color solid;
+  }
+  .chip__text_#{$id} {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    color: $accident-color;
+  }
+}
+
+.chip__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 28px;
+  padding: 0 8px;
+  margin: 4px;
+  border-radius: 16px;
+}
