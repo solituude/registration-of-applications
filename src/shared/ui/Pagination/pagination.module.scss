@@ -1,0 +1,36 @@
+.pagination__container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 20px;
+  width: 100%;
+  justify-content: center;
+
+}
+
+.pagination__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #e9e4ef;
+  border: 1px solid #e9e4ef;
+  transition: all 0.2s;
+  color: #4e326e;
+  &:hover {
+    transition: all 0.2s;
+    background: #D1C5DE;
+  }
+
+  &_active {
+    @extend .pagination__item;
+    background: #D1C5DE;
+    transition: all 0.2s;
+    &:hover {
+      transition: all 0.2s;
+      background: #bfb2ce;
+    }
+  }
+}
