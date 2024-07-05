@@ -1,8 +1,13 @@
+
 export {
     postApplicationById,
     getLastId,
     postLastId,
 } from './api';
+export {
+    hasErrors,
+    getErrors
+} from './lib/checkForm';
 export {
     $lastId,
     getLastIdFx,

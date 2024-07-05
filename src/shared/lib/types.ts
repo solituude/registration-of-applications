@@ -1,3 +1,5 @@
+import React from "react";
+
 export type ApplicationType = {
     id: string,
     address: string,
@@ -7,6 +9,21 @@ export type ApplicationType = {
     name: string,
     phone: string
 };
+
+export type FormErrorsType = {
+    address: boolean,
+    accidentType: boolean,
+    priority: boolean,
+    name: boolean,
+    phone: boolean,
+    coordinates: boolean
+}
+
+export type ModalFormProps = {
+    application: ApplicationType,
+    setApplication:  React.Dispatch<React.SetStateAction<ApplicationType>>,
+    error: FormErrorsType
+}
 
 export type PaginationProps = {
     countPages: number,

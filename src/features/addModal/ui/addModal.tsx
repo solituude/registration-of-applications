@@ -4,7 +4,8 @@ import {useUnit} from "effector-react";
 
 import {ModalForm} from "shared/ui/modalForm";
 import {ApplicationType} from "shared/lib/types";
-import {postApplicationById, postLastId} from "features/addModal";
+import {getErrors, hasErrors, postApplicationById, postLastId} from "features/addModal";
+import {FormErrorsType} from 'shared/lib/types';
 import {getCurrApplicationsFx} from "features/infoByPage";
 import {$currPage} from "features/infoByPage";
 import {$lastIdGetStatus, getLastIdFx} from "features/addModal";
@@ -19,6 +20,14 @@ export const AddModal: React.FC = () => {
         id: lastId.toString(), phone: '', name: "", accidentType: "", priority: "", address: "",
         coordinates: [47.222110, 39.718808]
     });
+    const [error, setError] = useState<FormErrorsType>({
+        address: false,
+        accidentType: false,
+        priority: false,
+        name: false,
+        phone: false,
+        coordinates: false
+    })
 
     useEffect(() => {
         getLastIdFx().then(r => setApplication({...application, id: r.data.toString()}));
@@ -29,10 +38,14 @@ export const AddModal: React.FC = () => {
         navigate('/statement');
     }
     const handleSubmit = () => {
-        postApplicationById(application);
-        getCurrApplicationsFx(currPage);
-        postLastId(lastId + 1);
-        handleClose();
+        const currError = getErrors(application);
+        setError(currError);
+        if (!hasErrors(currError)) {
+            postApplicationById(application);
+            getCurrApplicationsFx(currPage);
+            postLastId(lastId + 1);
+            handleClose();
+        }
     }
     return(
         <div className={s.modal_wrapper}>
@@ -44,7 +57,7 @@ export const AddModal: React.FC = () => {
 
                             <>
                                 Создание заявки № {lastId}
-                                <ModalForm application={application} setApplication={setApplication}/>
+                                <ModalForm application={application} setApplication={setApplication} error={error}/>
                             </>
                     }
                 </div>
