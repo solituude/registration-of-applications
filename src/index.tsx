@@ -7,10 +7,10 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import ApplicationPage from "./pages/ApplicationsPage/ApplicationPage";
-import EditModal from "./pages/ApplicationsPage/ui/EditModal/EditModal";
-import MapPage from "./pages/MapPage/MapPage";
-import AddModal from "./pages/ApplicationsPage/ui/AddModal/AddModal";
+import {ApplicationPage} from "pages/applicationsPage";
+import {EditModal} from "features/editModal";
+import {MapPage} from "pages/mapPage";
+import {AddModal} from "features/addModal";
 
 const router = createBrowserRouter([
     {
