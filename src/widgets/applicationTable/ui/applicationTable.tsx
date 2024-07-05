@@ -36,9 +36,9 @@ export const ApplicationTable: React.FC = () => {
             {
                 data.data.map((log) => (
                     <tr key={log.id} onClick={() => handleClick(log.id)}>
-                        <td>{log.id}</td>
+                        <td className={s.id__col}>{log.id}</td>
                         <td>{log.address}</td>
-                        <td><AccidentChip accident={log.accidentType}/></td>
+                        <td className={s.accident__col}><AccidentChip accident={log.accidentType}/></td>
                         <td className={s.priority__col}><PriorityChip priority={log.priority}/></td>
                         <td>{log.name}</td>
                         <td>{log.phone}</td>

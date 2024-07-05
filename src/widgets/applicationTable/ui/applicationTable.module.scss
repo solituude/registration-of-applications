@@ -6,13 +6,30 @@
 
 tbody, td, tfoot, th, thead, tr{
   border-width: 1px !important;
+  padding: 0 4px;
 }
 
 tr {
   cursor: pointer;
+  transition: 0.3s all;
+  &:hover {
+    background: #EAEAEA;
+    transition: 0.3s all;
+  }
+}
+
+.id__col {
+  text-align: center;
+}
+
+.address__col {
+  padding: 4px;
 }
 
 .priority__col {
   width: 180px !important;
+}
 
+.accident__col {
+  width: 210px !important;
 }

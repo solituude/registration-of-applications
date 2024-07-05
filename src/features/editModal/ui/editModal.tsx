@@ -54,13 +54,16 @@ export const EditModal: React.FC = () => {
         <div className={s.modal_wrapper}>
             <div className={s.modal}>
                 <div className={s.body}>
-                    Редактирование Заявки № {idApplication}
+                    <span className={s.header}>Редактирование Заявки № {idApplication}</span>
                     <ModalForm application={application} setApplication={setApplication} error={error}/>
                 </div>
 
                 <div className={s.footer}>
-                    <button onClick={() => handleSubmit()}>Сохранить</button>
-                    <button onClick={() => handleClose()}>Закрыть</button>
+                    <button onClick={() => handleSubmit()} className={s.save__button}>
+                        <span className={s.save__text}>
+                            Сохранить
+                        </span></button>
+                    <button onClick={() => handleClose()} className={s.close__button}><span className={s.close__text}>Закрыть</span></button>
                 </div>
             </div>
         </div>

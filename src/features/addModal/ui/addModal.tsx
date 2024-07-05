@@ -15,7 +15,7 @@ import s from "features/editModal/ui/modal.module.scss";
 export const AddModal: React.FC = () => {
     const navigate = useNavigate();
     const currPage = useUnit($currPage);
-    const { loadingLastId, errorLastId, lastId } = useUnit($lastIdGetStatus);
+    const {loadingLastId, errorLastId, lastId} = useUnit($lastIdGetStatus);
     const [application, setApplication] = useState<ApplicationType>({
         id: lastId.toString(), phone: '', name: "", accidentType: "", priority: "", address: "",
         coordinates: [47.222110, 39.718808]
@@ -37,6 +37,7 @@ export const AddModal: React.FC = () => {
     const handleClose = () => {
         navigate('/statement');
     }
+
     const handleSubmit = () => {
         const currError = getErrors(application);
         setError(currError);
@@ -47,24 +48,35 @@ export const AddModal: React.FC = () => {
             handleClose();
         }
     }
-    return(
+    return (
         <div className={s.modal_wrapper}>
             <div className={s.modal}>
                 <div className={s.body}>
-                    { errorLastId ? <>Ошибка в создании заявки</> :
+                    {errorLastId ? <>Ошибка в создании заявки</> :
 
                         loadingLastId ? <>Загрузка...</> :
 
                             <>
-                                Создание заявки № {lastId}
+                                <span className={s.header}>
+                                    Создание заявки № {lastId}
+                                </span>
+
                                 <ModalForm application={application} setApplication={setApplication} error={error}/>
                             </>
                     }
                 </div>
 
                 <div className={s.footer}>
-                    <button onClick={() => handleSubmit()}>Сохранить</button>
-                    <button onClick={() => handleClose()}>Закрыть</button>
+                    <button onClick={() => handleSubmit()}
+                            className={s.save__button}>
+                         <span className={s.save__text}>
+                            Сохранить
+                        </span>
+                    </button>
+                    <button onClick={() => handleClose()}
+                            className={s.close__button}>
+                        <span className={s.close__text}>Закрыть</span>
+                    </button>
                 </div>
             </div>
         </div>

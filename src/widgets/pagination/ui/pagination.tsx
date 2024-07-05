@@ -3,6 +3,8 @@ import {handleUpdatePage} from "features/infoByPage";
 import s from './pagination.module.scss';
 import {useUnit} from "effector-react";
 import {$currApplicationsGetStatus} from "features/infoByPage";
+import leftArrowIcon from 'shared/lib/icons/leftArrowIcon.svg';
+import rightArrowIcon from 'shared/lib/icons/rightArrowIcon.svg';
 
 export const Pagination: React.FC = () => {
     const {loading, error, data} = useUnit($currApplicationsGetStatus);
@@ -12,7 +14,7 @@ export const Pagination: React.FC = () => {
             {
                 data.prev ? <button onClick={() => handleUpdatePage(data.prev)}
                                     className={s.pagination__item}>
-                    &lt;
+                    <img src={leftArrowIcon} alt={"left"} className={s.pagination__arrow}/>
                 </button> : null
             }
             {
@@ -28,7 +30,7 @@ export const Pagination: React.FC = () => {
             {
                 data.next ? <button onClick={() => handleUpdatePage(data.next)}
                                     className={s.pagination__item}>
-                    &gt;
+                    <img src={rightArrowIcon} alt={"right"} className={s.pagination__arrow}/>
                 </button> : null
             }
         </div>
