@@ -2,12 +2,14 @@
 
 import {createEffect, createStore, restore, combine} from "effector";
 import {ApplicationType} from "shared/lib/types";
+import {getAllApplication} from "entities/application/api";
 
 // хранилище всех заявок
 export const $allApplications = createStore<ApplicationType[]>([]);
 
 // эффект для получения всех заявок
 export const getAllApplicationsFx = createEffect<void, ApplicationType[], Error>();
+getAllApplicationsFx.use(getAllApplication);
 
 //хранилище ошибки получения заявок
 export const $fetchError = restore<Error>(getAllApplicationsFx.failData, null);
@@ -20,6 +22,5 @@ export const $applicationsGetStatus = combine({
 });
 
 
-
-
-
+$allApplications
+    .on(getAllApplicationsFx.doneData, (_, data) => data);
