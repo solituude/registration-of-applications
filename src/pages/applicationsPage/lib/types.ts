@@ -8,5 +8,6 @@ export type ModalFormProps = {
 
 export type MapViewProps = {
     lat: number,
-    lon: number
+    lon: number,
+
 }

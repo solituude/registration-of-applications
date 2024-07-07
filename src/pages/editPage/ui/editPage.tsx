@@ -2,17 +2,19 @@ import React, {useEffect, useState} from "react";
 import {useUnit} from "effector-react";
 import {useNavigate} from "react-router-dom";
 
-import {getApplicationById, putApplicationById} from "features/editModal";
-import {ApplicationType, FormErrorsType} from "shared/lib/types";
+import {getApplicationById, putApplicationById} from "pages/editPage";
+import {FormErrorsType} from "shared/lib/types";
 import {$currPage} from "features/infoByPage";
 import {getCurrApplicationsFx} from "features/infoByPage";
-import { ModalForm } from 'shared/ui/modalForm';
+import { ModalForm } from 'widgets/modalForm';
 
-import s from './modal.module.scss';
-import {getErrors, hasErrors} from "features/addModal";
+import s from 'shared/ui/modalStyle/modal.module.scss';
+import {getErrors, hasErrors} from "pages/addPage";
+import {$currApplication, handleUpdateCurrApplication} from "entities/application";
 
-export const EditModal: React.FC = () => {
+export const EditPage: React.FC = () => {
     const currPage = useUnit($currPage);
+    const app = useUnit($currApplication);
     const navigate = useNavigate();
     const idApplication = window.location.pathname.slice(11, window.location.pathname.length);
     const [error, setError] = useState<FormErrorsType>({
@@ -22,17 +24,12 @@ export const EditModal: React.FC = () => {
         name: false,
         phone: false,
         coordinates: false
-    })
-
-    const [application, setApplication] = useState<ApplicationType>({
-        id: "0", phone: '', name: "", accidentType: "", priority: "", address: "", coordinates: [47.222110, 39.718808]
     });
-
 
     useEffect(() => {
         getApplicationById(Number(idApplication)).then(r => {
-            setApplication(r);
-            // console.log(r);
+            handleUpdateCurrApplication(r);
+            console.log(r);
         });
     }, [])
 
@@ -41,10 +38,10 @@ export const EditModal: React.FC = () => {
     }
 
     const handleSubmit = () => {
-        const currError = getErrors(application);
+        const currError = getErrors(app);
         setError(currError);
         if (!hasErrors(currError)) {
-            putApplicationById(application);
+            putApplicationById(app);
             getCurrApplicationsFx(currPage);
             handleClose();
         }
@@ -55,7 +52,7 @@ export const EditModal: React.FC = () => {
             <div className={s.modal}>
                 <div className={s.body}>
                     <span className={s.header}>Редактирование Заявки № {idApplication}</span>
-                    <ModalForm application={application} setApplication={setApplication} error={error}/>
+                    <ModalForm error={error}/>
                 </div>
 
                 <div className={s.footer}>

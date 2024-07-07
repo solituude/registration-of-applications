@@ -1,10 +1,13 @@
 import React from "react";
-import s from "features/editModal/ui/modal.module.scss";
-import {ACCIDENT_TYPES, PRIORITY_TYPES} from "../../lib/types";
+import s from "shared/ui/modalStyle/modal.module.scss";
+import {ACCIDENT_TYPES, PRIORITY_TYPES} from "shared/lib/types";
 import {ModalFormProps} from "shared/lib/types";
-import {MapView} from "shared/ui/mapView";
+import {MapView} from "features/mapView";
+import {useUnit} from "effector-react";
+import {$currApplication, handleUpdateCurrApplication} from "entities/application";
 
-export const ModalForm: React.FC<ModalFormProps> = ({application, setApplication, error}) => {
+export const ModalForm: React.FC<ModalFormProps> = ({error}) => {
+    const app = useUnit($currApplication);
     return (
         <form className={s.form__container}>
             <div className={s.input__container}>
@@ -14,8 +17,8 @@ export const ModalForm: React.FC<ModalFormProps> = ({application, setApplication
                 </label>
                 <input id="address"
                        type="text"
-                       value={application?.address}
-                       onChange={(e) => application && setApplication({...application, address: e.target.value})}/>
+                       value={app.address}
+                       onChange={(e) => app && handleUpdateCurrApplication({...app, address: e.target.value})}/>
 
             </div>
 
@@ -25,8 +28,8 @@ export const ModalForm: React.FC<ModalFormProps> = ({application, setApplication
                            className={s.label__text}>
                         Тип аварии: {error.accidentType ? <span className={s.error__text}>Выберите тип аварии</span> : null}
                     </label>
-                    <select value={application?.accidentType}
-                            onChange={(e) => application && setApplication({...application, accidentType: e.target.value})}
+                    <select value={app.accidentType}
+                            onChange={(e) => app && handleUpdateCurrApplication({...app, accidentType: e.target.value})}
                             id="accidentType">
                         <option value="">Тип аварии</option>
                         <option value="blockage">{ACCIDENT_TYPES.blockage}</option>
@@ -42,8 +45,8 @@ export const ModalForm: React.FC<ModalFormProps> = ({application, setApplication
                            className={s.label__text}>
                         Приоритет: {error.priority ? <span className={s.error__text}>Выберите приоритет</span> : null}
                     </label>
-                    <select value={application?.priority}
-                            onChange={(e) => application && setApplication({...application, priority: e.target.value})}
+                    <select value={app.priority}
+                            onChange={(e) => app && handleUpdateCurrApplication({...app, priority: e.target.value})}
                             id="priority">
                         <option value="">Приоритет</option>
                         <option value="4">{PRIORITY_TYPES["4"]}</option>
@@ -61,8 +64,8 @@ export const ModalForm: React.FC<ModalFormProps> = ({application, setApplication
                 </label>
                 <input id="name"
                        type="text"
-                       value={application?.name}
-                       onChange={(e) => application && setApplication({...application, name: e.target.value})}/>
+                       value={app.name}
+                       onChange={(e) => app && handleUpdateCurrApplication({...app, name: e.target.value})}/>
             </div>
 
             <div className={s.input__container}>
@@ -72,15 +75,15 @@ export const ModalForm: React.FC<ModalFormProps> = ({application, setApplication
                 </label>
                 <input id="phone"
                        type={"tel"}
-                       value={application?.phone}
+                       value={app.phone}
                        onChange={(e) => {
-                           application && setApplication({...application, phone: e.target.value});
+                           app && handleUpdateCurrApplication({...app, phone: e.target.value});
                        }} />
             </div>
 
 
             {error.coordinates ? <span className={s.error__text}>Выберите точку на карте</span> : null}
-            <MapView lat={application.coordinates[0]} lon={application.coordinates[1]} />
+            <MapView />
         </form>
     )
 }

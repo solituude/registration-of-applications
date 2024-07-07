@@ -1,5 +1,3 @@
-import React from "react";
-
 export type ApplicationType = {
     id: string,
     address: string,
@@ -20,8 +18,8 @@ export type FormErrorsType = {
 }
 
 export type ModalFormProps = {
-    application: ApplicationType,
-    setApplication:  React.Dispatch<React.SetStateAction<ApplicationType>>,
+    // application: ApplicationType,
+    // setApplication:  React.Dispatch<React.SetStateAction<ApplicationType>>,
     error: FormErrorsType
 }
 

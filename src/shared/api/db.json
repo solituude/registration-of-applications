@@ -4,24 +4,24 @@
       "id": "1",
       "address": "ул. Ленина 124",
       "coordinates": [
-        47.232664,
-        39.69887
+        47.23183239455068,
+        39.71557036083401
       ],
       "accidentType": "lowQualityWater",
-      "priority": "1",
+      "priority": "3",
       "name": "Иван",
-      "phone": "+7 (987) 890-89-90"
+      "phone": "+79878908990"
     },
     {
       "id": "2",
       "phone": "+79678070949",
       "name": "Дарья Александровна Белоусова",
-      "accidentType": "breakthrough",
+      "accidentType": "leak",
       "priority": "4",
-      "address": "ул. Лукачева 34",
+      "address": "ул. Лукачева 32",
       "coordinates": [
-        47.22211,
-        39.718808
+        47.2225964905721,
+        39.71978155805338
       ]
     },
     {
@@ -76,12 +76,12 @@
       "id": "7",
       "phone": "+79678070949",
       "name": "Дарья",
-      "accidentType": "breakthrough",
-      "priority": "4",
-      "address": "ул. Лукачева 34",
+      "accidentType": "blockage",
+      "priority": "1",
+      "address": "ул. Шаумяна 77",
       "coordinates": [
-        47.22211,
-        39.718808
+        47.221554280411226,
+        39.71721833988014
       ]
     },
     {
@@ -183,17 +183,29 @@
     {
       "id": "16",
       "phone": "+79678070949",
-      "name": "Дарья Александровна Белоусова",
+      "name": "Дарья Александровна Белоусовa",
       "accidentType": "lowQualityWater",
-      "priority": "4",
-      "address": "ул. Лукачева 34",
+      "priority": "3",
+      "address": "ул. Лукачева 35",
       "coordinates": [
-        47.22211,
-        39.718808
+        47.23096542663933,
+        39.721372379275174
       ]
+    },
+    {
+      "id": "17",
+      "phone": "+79678070949",
+      "name": "Дарья Александровна Белоусова",
+      "coordinates": [
+        46.37966469391259,
+        48.08877450206807
+      ],
+      "priority": "4",
+      "accidentType": "lowQualityWater",
+      "address": "ул. Лукачева 34"
     }
   ],
   "lastID": {
-    "data": 17
+    "data": 18
   }
 }

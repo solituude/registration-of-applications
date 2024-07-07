@@ -2,24 +2,27 @@ import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useUnit} from "effector-react";
 
-import {ModalForm} from "shared/ui/modalForm";
-import {ApplicationType} from "shared/lib/types";
-import {getErrors, hasErrors, postApplicationById, postLastId} from "features/addModal";
-import {FormErrorsType} from 'shared/lib/types';
-import {getCurrApplicationsFx} from "features/infoByPage";
-import {$currPage} from "features/infoByPage";
-import {$lastIdGetStatus, getLastIdFx} from "features/addModal";
+import {ModalForm} from "widgets/modalForm";
+import {getCurrApplicationsFx, $currPage} from "features/infoByPage";
+import {FormErrorsType} from "shared/lib/types";
+import {getErrors, hasErrors, postApplicationById, postLastId} from "pages/addPage";
+import {$lastIdGetStatus, getLastIdFx} from "pages/addPage";
 
-import s from "features/editModal/ui/modal.module.scss";
+import s from "shared/ui/modalStyle/modal.module.scss";
+import {$currApplication, handleUpdateCurrApplication} from "entities/application";
 
-export const AddModal: React.FC = () => {
+export const AddPage: React.FC = () => {
     const navigate = useNavigate();
     const currPage = useUnit($currPage);
     const {loadingLastId, errorLastId, lastId} = useUnit($lastIdGetStatus);
-    const [application, setApplication] = useState<ApplicationType>({
-        id: lastId.toString(), phone: '', name: "", accidentType: "", priority: "", address: "",
-        coordinates: [47.222110, 39.718808]
-    });
+    const app = useUnit($currApplication);
+
+    useEffect(() => {
+        handleUpdateCurrApplication({
+            id: lastId.toString(), phone: '', name: "", accidentType: "", priority: "", address: "", coordinates: [47.222110, 39.718808]
+        });
+    }, [lastId])
+
     const [error, setError] = useState<FormErrorsType>({
         address: false,
         accidentType: false,
@@ -30,7 +33,8 @@ export const AddModal: React.FC = () => {
     })
 
     useEffect(() => {
-        getLastIdFx().then(r => setApplication({...application, id: r.data.toString()}));
+        getLastIdFx().then(r => handleUpdateCurrApplication({ phone: '', name: "", accidentType: "", priority: "", address: "",
+            coordinates: [47.222110, 39.718808], id: r.data.toString()}));
     }, [])
 
 
@@ -39,10 +43,10 @@ export const AddModal: React.FC = () => {
     }
 
     const handleSubmit = () => {
-        const currError = getErrors(application);
+        const currError = getErrors(app);
         setError(currError);
         if (!hasErrors(currError)) {
-            postApplicationById(application);
+            postApplicationById(app);
             getCurrApplicationsFx(currPage);
             postLastId(lastId + 1);
             handleClose();
@@ -61,7 +65,7 @@ export const AddModal: React.FC = () => {
                                     Создание заявки № {lastId}
                                 </span>
 
-                                <ModalForm application={application} setApplication={setApplication} error={error}/>
+                                <ModalForm error={error}/>
                             </>
                     }
                 </div>
@@ -80,6 +84,5 @@ export const AddModal: React.FC = () => {
                 </div>
             </div>
         </div>
-        // если после
     )
 };

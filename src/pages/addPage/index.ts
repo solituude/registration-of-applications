@@ -13,5 +13,5 @@ export {
     getLastIdFx,
     $fetchLastIdError,
     $lastIdGetStatus
-} from './model/lastIdModel';
-export {AddModal} from './ui/addModal';
+} from 'widgets/modalForm/model/lastIdModel';
+export {AddPage} from './ui/addPage';

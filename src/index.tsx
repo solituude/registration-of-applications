@@ -8,9 +8,9 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import {ApplicationPage} from "pages/applicationsPage";
-import {EditModal} from "features/editModal";
+import {EditPage} from "pages/editPage";
 import {MapPage} from "pages/mapPage";
-import {AddModal} from "features/addModal";
+import {AddPage} from "pages/addPage";
 
 const router = createBrowserRouter([
     {
@@ -27,11 +27,11 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: "/statement/:id",
-                        element: <EditModal/>,
+                        element: <EditPage/>,
                     },
                     {
                         path: "/statement/add",
-                        element: <AddModal/>,
+                        element: <AddPage/>,
                     }
                 ]
             },
