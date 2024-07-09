@@ -2,7 +2,7 @@ import React from "react";
 import s from "shared/ui/modalStyle/modal.module.scss";
 import {ACCIDENT_TYPES, PRIORITY_TYPES} from "shared/lib/types";
 import {ModalFormProps} from "shared/lib/types";
-import {MapView} from "features/mapView";
+import {MapView} from "features/mapViewModal";
 import {useUnit} from "effector-react";
 import {$currApplication, handleUpdateCurrApplication} from "entities/application";
 

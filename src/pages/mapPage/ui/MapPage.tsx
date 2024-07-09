@@ -1,7 +1,7 @@
 import React from "react";
 
 import s from './mapPage.module.scss';
-import Map from "pages/mapPage/ui/Map";
+import {Map} from "features/map";
 
 export const MapPage: React.FC = () => {
     return(
