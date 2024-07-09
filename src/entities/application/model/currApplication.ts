@@ -11,4 +11,5 @@ const updateCurrApplication = (_: ApplicationType, data: ApplicationType) => {
     return {...data, coordinates: [data.coordinates[0], data.coordinates[1]]};
 }
 
-$currApplication.on(handleUpdateCurrApplication, updateCurrApplication);
+$currApplication
+    .on(handleUpdateCurrApplication, updateCurrApplication);

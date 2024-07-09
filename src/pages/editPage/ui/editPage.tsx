@@ -4,8 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 import {getApplicationById, putApplicationById} from "pages/editPage";
 import {FormErrorsType} from "shared/lib/types";
-import {$currPage} from "features/infoByPage";
-import {getCurrApplicationsFx} from "features/infoByPage";
+import {getCurrApplicationsFx, $currPage} from "entities/application";
 import { ModalForm } from 'widgets/modalForm';
 
 import s from 'shared/ui/modalStyle/modal.module.scss';

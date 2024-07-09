@@ -1,8 +1,7 @@
 import React from "react";
-import {handleUpdatePage} from "features/infoByPage";
+import {handleUpdatePage, $currApplicationsGetStatus} from "entities/application";
 import s from './pagination.module.scss';
 import {useUnit} from "effector-react";
-import {$currApplicationsGetStatus} from "features/infoByPage";
 import leftArrowIcon from 'shared/lib/icons/leftArrowIcon.svg';
 import rightArrowIcon from 'shared/lib/icons/rightArrowIcon.svg';
 

@@ -18,3 +18,9 @@ export type ResponseCurrApplicationsType = {
     pages: number,
     prev: number
 }
+
+
+export type RequestSearchType = {
+    page: number,
+    name: string
+}

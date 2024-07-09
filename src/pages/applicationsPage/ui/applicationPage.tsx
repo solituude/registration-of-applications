@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import {useUnit} from "effector-react";
-import {getCurrApplicationsFx} from "features/infoByPage";
-import {$currPage} from "features/infoByPage";
+import {getCurrApplicationsFx, $currPage} from "entities/application";
 
 import {Panel} from "widgets/panel";
 import {ApplicationTable} from "widgets/applicationTable";

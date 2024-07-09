@@ -4,11 +4,11 @@ import {Tile, Vector as LayerVector} from "ol/layer";
 import OSM from "ol/source/OSM";
 import Map from 'ol/Map.js';
 import View from "ol/View";
-import {fromLonLat, toLonLat} from "ol/proj";
+import {fromLonLat} from "ol/proj";
 import {Vector as SourceVector} from "ol/source";
 import {Point} from "ol/geom";
 import {Icon, Style} from "ol/style";
-import {$currApplication, handleUpdateCurrApplication} from "entities/application";
+
 import {useUnit} from "effector-react";
 import {$allApplications, getAllApplicationsFx} from "entities/application/model/allApplicationsModel";
 import redIcon from "shared/lib/icons/redPoint.svg";

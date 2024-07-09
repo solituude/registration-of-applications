@@ -1,6 +1,7 @@
 import { combine, createEffect, createStore, restore } from 'effector';
-import {getApplicationsByPage} from "features/infoByPage";
-import {ResponseCurrApplicationsType} from "features/infoByPage";
+import {getApplicationsByPage, ResponseCurrApplicationsType} from "entities/application";
+import {searchApplicationByName} from "entities/application/api/api";
+import {RequestSearchType} from "entities/application/model/types";
 
 // Создаем хранилище для текущих заявок
 export const $currApplications = createStore<ResponseCurrApplicationsType>({
@@ -11,6 +12,9 @@ export const $currApplications = createStore<ResponseCurrApplicationsType>({
 export const getCurrApplicationsFx = createEffect<number, ResponseCurrApplicationsType, Error>();
 getCurrApplicationsFx.use(getApplicationsByPage);
 
+export const getSearchApplicationFx = createEffect<RequestSearchType, ResponseCurrApplicationsType, Error>();
+getSearchApplicationFx.use(searchApplicationByName);
+
 
 // Хранилище ошибки получения заявок
 export const $fetchCurrApplicationError = restore<Error>(getCurrApplicationsFx.failData, null).reset(getCurrApplicationsFx);
@@ -18,7 +22,7 @@ export const $fetchCurrApplicationError = restore<Error>(getCurrApplicationsFx.f
 
 // Статус запроса
 export const $currApplicationsGetStatus = combine({
-    loading: getCurrApplicationsFx.pending,
+    loading: getCurrApplicationsFx.pending || getSearchApplicationFx.pending,
     error: $fetchCurrApplicationError,
     data: $currApplications,
 });
@@ -26,4 +30,6 @@ export const $currApplicationsGetStatus = combine({
 // Обновление хранилища заявок при успешном выполнении эффекта
 $currApplications
     .on(getCurrApplicationsFx.doneData, (_, data) => data);
+$currApplications
+    .on(getSearchApplicationFx.doneData, (_, data) => data);
 

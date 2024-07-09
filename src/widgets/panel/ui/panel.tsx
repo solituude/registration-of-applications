@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import addAppIcon from '../lib/icons/addAppIcon.svg';
 
 import s from './panel.module.scss';
+import {Search} from "features/search";
 
 export const Panel: React.FC = () => {
     const navigate = useNavigate();
@@ -16,6 +17,9 @@ export const Panel: React.FC = () => {
         <div className={s.panel__container}>
             <div className={s.panel__header}>
                 <h1>Журнал заявок</h1>
+
+                <Search/>
+
                 <button onClick={handleOpen} className={s.new_app__button}>
                     <img src={addAppIcon} alt="addApp" className={s.new_app__icon}/>
                     <span className={s.new_app__label}>

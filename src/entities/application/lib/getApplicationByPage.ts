@@ -1,4 +1,4 @@
-import {getCurrApplicationsFx, PagesInfoType} from "features/infoByPage";
+import {getCurrApplicationsFx, PagesInfoType} from "entities/application";
 import {ApplicationType} from "shared/lib/types";
 
 export const getApplicationsInfo = (page: number): ApplicationType[] => {

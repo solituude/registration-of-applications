@@ -4,8 +4,8 @@
       "id": "1",
       "address": "ул. Ленина 124",
       "coordinates": [
-        47.23183239455068,
-        39.71557036083401
+        47.23205785231849,
+        39.7154608303143
       ],
       "accidentType": "lowQualityWater",
       "priority": "3",
@@ -110,23 +110,23 @@
     },
     {
       "id": "10",
-      "phone": "",
-      "name": "",
-      "accidentType": "",
-      "priority": "",
-      "address": "",
+      "phone": "+79678070949",
+      "name": "Дарья Александровна Белоусова",
+      "accidentType": "outdoorColumn",
+      "priority": "4",
+      "address": "ул. Лукачева 34",
       "coordinates": [
-        47.22211,
-        39.718808
+        47.22372619036321,
+        39.71954965660026
       ]
     },
     {
       "id": "11",
-      "phone": "",
-      "name": "",
-      "accidentType": "",
-      "priority": "",
-      "address": "",
+      "phone": "+79276538168",
+      "name": "qwe",
+      "accidentType": "blockage",
+      "priority": "1",
+      "address": "ул. Лукачева 34",
       "coordinates": [
         47.22211,
         39.718808

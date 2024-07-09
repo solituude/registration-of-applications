@@ -1,3 +1,4 @@
 export {
-    getAllApplication
+    getAllApplication,
+    getApplicationsByPage
 } from 'entities/application/api/api';

@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useUnit} from "effector-react";
 
 import {ModalForm} from "widgets/modalForm";
-import {getCurrApplicationsFx, $currPage} from "features/infoByPage";
+import {getCurrApplicationsFx, $currPage} from "entities/application";
 import {FormErrorsType} from "shared/lib/types";
 import {getErrors, hasErrors, postApplicationById, postLastId} from "pages/addPage";
 import {$lastIdGetStatus, getLastIdFx} from "pages/addPage";
