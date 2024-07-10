@@ -1,21 +1,17 @@
 .panel__container {
   display: flex;
-  flex-direction: column;
-}
-
-.panel__header{
-  display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .panel__main{
   display: flex;
+  width: 100%;
   flex-direction: row;
-  height: 30px;
+  justify-content: flex-end;
+  align-items: center;
   gap: 20px;
 }
+
 
 .new_app__button {
   display: flex;

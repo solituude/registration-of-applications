@@ -3,11 +3,11 @@
   align-items: center;
   justify-content: flex-end;
   height: 36px;
-  width: 44px;
-  padding: 2px 8px;
+  width: 56px;
   background: #EAEAEA;
   border-radius: 18px;
   transition: 0.3s all;
+  padding: 2px 8px;
   cursor: pointer;
   gap: 8px;
 }
@@ -15,7 +15,7 @@
 .search__container_open {
   @extend .search__container_hide;
   width: 320px;
-  justify-content: space-between;
+  padding: 2px 8px;
 }
 
 .input__container_hide {

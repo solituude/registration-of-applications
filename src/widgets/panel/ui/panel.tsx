@@ -15,11 +15,9 @@ export const Panel: React.FC = () => {
 
     return(
         <div className={s.panel__container}>
-            <div className={s.panel__header}>
-                <h1>Журнал заявок</h1>
-
+            <h1>Журнал&nbsp;заявок</h1>
+            <div className={s.panel__main}>
                 <Search/>
-
                 <button onClick={handleOpen} className={s.new_app__button}>
                     <img src={addAppIcon} alt="addApp" className={s.new_app__icon}/>
                     <span className={s.new_app__label}>

@@ -60,8 +60,8 @@ export type ErrorType = {
 export const ACCIDENT_TYPES = {
     breakthrough: "Прорыв",
     leak: "Утечка",
-    outdoorColumn: "Колонка уличная",
-    lowQualityWater: "Некачественная вода",
+    outdoorColumn: `Колонка\u00A0уличная`,
+    lowQualityWater: "Некачественная\u00A0вода",
     blockage: "Закупорка",
     other: "Другое"
 }
