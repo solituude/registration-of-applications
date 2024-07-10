@@ -1,4 +1,4 @@
-import {FormErrorsType, ApplicationType} from 'shared/lib/types';
+import {FormErrorsType, ApplicationType} from 'shared/lib';
 
 export const hasErrors = (appErrors: FormErrorsType): boolean => {
     return appErrors.accidentType || appErrors.address || appErrors.name || appErrors.phone || appErrors.coordinates || appErrors.priority;

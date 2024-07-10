@@ -1,0 +1,3 @@
+export {
+    getLastId
+} from './api';

@@ -14,7 +14,6 @@ export const ApplicationPage: React.FC = () => {
 
     useEffect(() => {
         getCurrApplicationsFx(currPage);
-        // getAllApplicationsFx().then(r => console.log(r));
     }, [currPage]);
 
     return(

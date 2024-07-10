@@ -9,15 +9,3 @@ export const getMapParams = (link: string): MapParamsType => {
     params.zoom = arrItems[6] === "%3Czoom%3E" ? "12": arrItems[6];
     return params;
 }
-
-export function throttle<T extends (...args: any[]) => void> (func: T, delay: number): (...args: Parameters<T>) => void {
-    let lastCall = 0;
-    return function (...args: Parameters<T>): void {
-        const now = (new Date).getTime();
-        if (now - lastCall < delay) {
-            return;
-        }
-        lastCall = now;
-        return func(...args);
-    };
-}

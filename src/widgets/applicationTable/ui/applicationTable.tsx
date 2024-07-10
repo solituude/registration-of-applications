@@ -34,7 +34,7 @@ export const ApplicationTable: React.FC = () => {
             </thead>
             <tbody>
             {
-                data.data.length === 0 ? <span  className={s.no_data__text}>Нет данных</span> : data.data.map((log) => (
+                data.data.length === 0 ? <tr  className={s.no_data__text}>Нет данных</tr> : data.data.map((log) => (
                     <tr key={log.id} onClick={() => handleClick(log.id)}>
                         <td className={s.id__col}>{log.id}</td>
                         <td>{log.address}</td>

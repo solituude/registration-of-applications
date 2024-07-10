@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
+import {useUnit} from "effector-react";
 import {Feature, Overlay} from "ol";
 import {Tile, Vector as LayerVector} from "ol/layer";
 import OSM from "ol/source/OSM";
@@ -8,37 +9,12 @@ import {fromLonLat, toLonLat} from "ol/proj";
 import {Vector as SourceVector} from "ol/source";
 import {Point} from "ol/geom";
 import {Icon, Style} from "ol/style";
-
-import {useUnit} from "effector-react";
-import {$allApplications, getAllApplicationsFx} from "entities/application/model/allApplicationsModel";
-import redIcon from "shared/lib/icons/redPoint.svg";
-import orangeIcon from "shared/lib/icons/orangePoint.svg";
-import greenIcon from "shared/lib/icons/greenPoint.svg";
-import blueIcon from "shared/lib/icons/bluePoint.svg";
 import {useNavigate} from "react-router-dom";
-import {getMapParams} from "features/map";
-import {ApplicationType} from "shared/lib/types";
+import {getMapParams, phoneIcon} from "features/map";
+import {mapNavbarIcon, getIcon, ApplicationType} from 'shared/lib';
+import {AccidentChip, PriorityChip} from "shared/ui";
+import {$allApplications, getAllApplicationsFx} from "entities/application";
 import s from './map.module.scss';
-import phoneIcon from '../lib/icons/phoneIcon.svg';
-import mapIcon from 'shared/lib/icons/mapNavbarIcon.svg';
-import {AccidentChip} from "shared/ui/accidentChip";
-import {PriorityChip} from "shared/ui/priorityChip";
-
-const getIcon = (priority: string) => {
-    switch (priority) {
-        case "1":
-            return redIcon;
-        case "2":
-            return orangeIcon;
-        case "3":
-            return greenIcon;
-        case "4":
-            return blueIcon;
-        default:
-            return redIcon;
-    }
-}
-
 
 export const MapV: React.FC = () => {
     const app = useUnit($allApplications);
@@ -139,6 +115,7 @@ export const MapV: React.FC = () => {
     useEffect(() => {
         getAllApplicationsFx().then(r => console.log(r));
     }, []);
+
     return (
         <>
             <div id="map" style={{width: "100%", height: "100%"}}/>
@@ -153,7 +130,7 @@ export const MapV: React.FC = () => {
 
 
                         <div className={s.popup__item}>
-                            <img src={mapIcon} className={s.popup__icon} alt={"map"}/>
+                            <img src={mapNavbarIcon} className={s.popup__icon} alt={"map"}/>
                             <span>{popupContent.address}</span>
                         </div>
 

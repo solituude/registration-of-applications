@@ -1,5 +1,7 @@
-import {ResponseCurrApplicationsType} from "entities/application";
-import {RequestSearchType} from "entities/application/model/types";
+import {
+    ResponseCurrApplicationsType,
+    RequestSearchType} from "entities/application";
+
 // получение всех заявок
 export const getAllApplication = async () => {
     try {

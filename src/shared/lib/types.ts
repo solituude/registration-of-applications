@@ -23,11 +23,6 @@ export type ModalFormProps = {
     error: FormErrorsType
 }
 
-export type PaginationProps = {
-    countPages: number,
-    prev: number,
-    next: number,
-}
 
 export type PriorityChipProps = {
     priority: string
@@ -35,26 +30,6 @@ export type PriorityChipProps = {
 
 export type AccidentChipProps = {
     accident: string
-}
-
-
-export type ApplicationStateType = {
-    applications: ApplicationType[];
-    total: number;
-    currentPage: number;
-    isLoading: boolean;
-    error: string | null;
-};
-
-export type ErrorType = {
-    data: string,
-    error: {
-        message: string,
-        stack: string,
-    },
-    internal: boolean,
-    status: number,
-    statusText: string
 }
 
 export const ACCIDENT_TYPES = {

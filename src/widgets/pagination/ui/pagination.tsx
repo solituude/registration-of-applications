@@ -2,12 +2,13 @@ import React from "react";
 import {handleUpdatePage, $currApplicationsGetStatus} from "entities/application";
 import s from './pagination.module.scss';
 import {useUnit} from "effector-react";
-import leftArrowIcon from 'shared/lib/icons/leftArrowIcon.svg';
-import rightArrowIcon from 'shared/lib/icons/rightArrowIcon.svg';
+import {leftArrowIcon, rightArrowIcon} from 'shared/lib';
 
 export const Pagination: React.FC = () => {
     const {loading, error, data} = useUnit($currApplicationsGetStatus);
 
+    if (loading) return <div>...</div>
+    if (error) return <div/>
     return (
         <div className={s.pagination__container}>
             {

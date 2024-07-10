@@ -1,6 +1,6 @@
 // последний адишник заявки
 import {combine, createEffect, createStore, restore} from "effector";
-import {getLastId} from "pages/addPage";
+import {getLastId} from "widgets/modalForm";
 
 
 // хранилище последнего айди

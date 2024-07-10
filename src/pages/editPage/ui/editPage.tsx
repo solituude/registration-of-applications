@@ -3,13 +3,16 @@ import {useUnit} from "effector-react";
 import {useNavigate} from "react-router-dom";
 
 import {getApplicationById, putApplicationById} from "pages/editPage";
-import {FormErrorsType} from "shared/lib/types";
-import {getCurrApplicationsFx, $currPage} from "entities/application";
+import {FormErrorsType} from "shared/lib";
+import {
+    getCurrApplicationsFx,
+    $currPage,
+    $currApplication,
+    handleUpdateCurrApplication} from "entities/application";
 import { ModalForm } from 'widgets/modalForm';
 
 import s from 'shared/ui/modalStyle/modal.module.scss';
 import {getErrors, hasErrors} from "pages/addPage";
-import {$currApplication, handleUpdateCurrApplication} from "entities/application";
 
 export const EditPage: React.FC = () => {
     const currPage = useUnit($currPage);

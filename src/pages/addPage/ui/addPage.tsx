@@ -3,26 +3,27 @@ import {useNavigate} from "react-router-dom";
 import {useUnit} from "effector-react";
 
 import {ModalForm} from "widgets/modalForm";
-import {getCurrApplicationsFx, $currPage} from "entities/application";
-import {FormErrorsType} from "shared/lib/types";
-import {getErrors, hasErrors, postApplicationById, postLastId} from "pages/addPage";
-import {$lastIdGetStatus, getLastIdFx} from "pages/addPage";
+import {
+    getCurrApplicationsFx,
+    $currPage,
+    $currApplication,
+    handleUpdateCurrApplication} from "entities/application";
+import {FormErrorsType} from "shared/lib";
+import {
+    getErrors,
+    hasErrors,
+    postApplicationById,
+    postLastId,
+    $lastIdGetStatus,
+    getLastIdFx} from "pages/addPage";
 
 import s from "shared/ui/modalStyle/modal.module.scss";
-import {$currApplication, handleUpdateCurrApplication} from "entities/application";
 
 export const AddPage: React.FC = () => {
     const navigate = useNavigate();
     const currPage = useUnit($currPage);
     const {loadingLastId, errorLastId, lastId} = useUnit($lastIdGetStatus);
     const app = useUnit($currApplication);
-
-    useEffect(() => {
-        handleUpdateCurrApplication({
-            id: lastId.toString(), phone: '', name: "", accidentType: "", priority: "", address: "", coordinates: [47.222110, 39.718808]
-        });
-    }, [lastId])
-
     const [error, setError] = useState<FormErrorsType>({
         address: false,
         accidentType: false,
@@ -33,9 +34,19 @@ export const AddPage: React.FC = () => {
     })
 
     useEffect(() => {
-        getLastIdFx().then(r => handleUpdateCurrApplication({ phone: '', name: "", accidentType: "", priority: "", address: "",
-            coordinates: [47.222110, 39.718808], id: r.data.toString()}));
-    }, [])
+        handleUpdateCurrApplication({
+            id: lastId.toString(),
+            phone: '', name: "", accidentType: "", priority: "", address: "",
+            coordinates: [47.222110, 39.718808]
+        });
+    }, [lastId]);
+
+    useEffect(() => {
+        getLastIdFx().then(r => handleUpdateCurrApplication({
+            id: r.data.toString(),
+            phone: '', name: "", accidentType: "", priority: "", address: "",
+            coordinates: [47.222110, 39.718808]}));
+    }, []);
 
 
     const handleClose = () => {
@@ -57,14 +68,11 @@ export const AddPage: React.FC = () => {
             <div className={s.modal}>
                 <div className={s.body}>
                     {errorLastId ? <>Ошибка в создании заявки</> :
-
                         loadingLastId ? <>Загрузка...</> :
-
                             <>
                                 <span className={s.header}>
                                     Создание заявки № {lastId}
                                 </span>
-
                                 <ModalForm error={error}/>
                             </>
                     }
